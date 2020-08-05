@@ -14,7 +14,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @Document
 @ToString 
-public class BankCommission {
+public class Bankcommission {
 
 	@Id
 	private String id;

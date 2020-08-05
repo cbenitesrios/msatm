@@ -24,10 +24,7 @@ public class Atm{
 	@Id
 	private String id;
 	private String atmcode;
-	private String bank;
-	private Long maxwithdrawtimes;
-	private Long maxdeposittimes;
-	private Double commissionwithdraw;
-	private Double commissiondeposit;
+	private String bank; 
 	
 }
+	

@@ -16,7 +16,7 @@ import lombok.ToString;
 @Getter
 @Setter
 public class TransactionResponse { 
-	private String id;
+	private String transactid;
 	private String productid;
 	private Double amount;
 	private Double totalcommission;

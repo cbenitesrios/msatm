@@ -15,9 +15,7 @@ import lombok.ToString;
 @ToString
 public class Atmrequest { 
   private String atmid;
-  private String titular;
-  private String clientid;
+  private String titular; 
   private String productid;
-  private String commission;
   private Double amount;	
 }
