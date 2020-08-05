@@ -11,8 +11,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @Setter
 @Data
-public class BankcommissionCreate {
-	private String id;
+public class BankcommissionCreate { 
 	private String bank;
 	private Double withdrawcommission;
 	private Double depositcommission;
