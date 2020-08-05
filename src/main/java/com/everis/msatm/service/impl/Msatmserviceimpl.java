@@ -33,7 +33,7 @@ public class Msatmserviceimpl implements IMsatmservice{
 	IBankcommission bankcommrepo;
 	
 	
-	
+	@Override
 	public Mono<Operation> depositatm(Atmrequest atmdeporequest, WebClient transactwc){
 	  return atmrepo.findById(atmdeporequest.getAtmid()).switchIfEmpty(Mono.error(Atmexception.builder()
                                                         .code("Error-1")
@@ -65,6 +65,7 @@ public class Msatmserviceimpl implements IMsatmservice{
             		                   .commissions(response.getTotalcommission())
             		                   .build()));
 	}
+	  @Override
 	  public Mono<Operation> withdrawatm(Atmrequest atmwithrequest, WebClient transactwc) {
 		  return atmrepo.findById(atmwithrequest.getAtmid()).switchIfEmpty(Mono.error(Atmexception.builder()
 	                                                        .code("Error-1")
@@ -97,16 +98,19 @@ public class Msatmserviceimpl implements IMsatmservice{
 		                   .build()));
 	}
 	  
-	  
-	  public Mono<Atm> createAtm(Atmcreate atm){
+	  @Override
+	  public Mono<Atm> createatm(Atmcreate atm){
 	      return atmrepo.save(Atm.builder().bank(atm.getBank()).atmcode(atm.getAtmcode()).build());
 	  }
+	  @Override
 	  public Mono<Bankcommission> createbankcommission(BankcommissionCreate bankcommission){
 		  return bankcommrepo.save(Bankcommission.builder()
 				           .bank(bankcommission.getBank())
 				           .withdrawcommission(bankcommission.getWithdrawcommission())
 				           .depositcommission(bankcommission.getDepositcommission())
 				           .build());
-		}
+	}
+	  
+	 
 	  
 }

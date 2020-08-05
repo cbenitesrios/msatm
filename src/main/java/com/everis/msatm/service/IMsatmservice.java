@@ -14,6 +14,7 @@ import reactor.core.publisher.Mono;
 
 public interface IMsatmservice { 
 	Mono<Operation> depositatm(Atmrequest atmdepositreq, WebClient transactwc);
+	Mono<Operation> withdrawatm(Atmrequest atmwithdrawreq, WebClient transactwc); 
 	Mono<Atm> createatm(Atmcreate atm);
 	Mono<Bankcommission> createbankcommission(BankcommissionCreate bankcommission);
 }
