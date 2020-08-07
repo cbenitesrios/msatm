@@ -1,5 +1,7 @@
 package com.everis.msatm.expose;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,22 +36,22 @@ public class MsatmController {
 	public static final String URL_TRANSACT = "http://localhost:8040/apitransaction";
 	
 	@PostMapping("/depositatm")
-    public Mono<Operation> depositatm(@RequestBody Atmrequest request){
+    public Mono<Operation> depositatm(@RequestBody @Valid Atmrequest request){
 		return atmservice.depositatm(request,  WebClient.create( URL_TRANSACT + "/depositatm"));
 	}
 	
 	@PostMapping("/withdrawatm")
-    public Mono<Operation> withdrawatm(@RequestBody Atmrequest request){
+    public Mono<Operation> withdrawatm(@RequestBody @Valid Atmrequest request){
 		return atmservice.withdrawatm(request,  WebClient.create( URL_TRANSACT + "/withdrawatm"));
 	}
 	
 	@PostMapping("/createatm")
-    public Mono<Atm> createatm(@RequestBody Atmcreate request){
+    public Mono<Atm> createatm(@RequestBody @Valid Atmcreate request){
 		return atmservice.createatm(request);
 	}
 	
 	@PostMapping("/createbankcom")
-    public Mono<Bankcommission> createbankcommission(@RequestBody BankcommissionCreate request){
+    public Mono<Bankcommission> createbankcommission(@RequestBody @Valid BankcommissionCreate request){
 		return atmservice.createbankcommission(request);
 	}
 	
